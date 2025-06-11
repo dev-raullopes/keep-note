@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: "bold",
         color: "#000",
+        flex: 1
     },
     inputSearchContainer:{
         flexDirection: "row",
@@ -39,5 +40,16 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-    }
+    },
+    emptyList: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+    },
+    emptyListText: {
+        fontSize: 18,
+        color: "#666",
+        textAlign: "center",
+    },
 })
