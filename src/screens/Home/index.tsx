@@ -6,7 +6,7 @@ import {
   FlatList,
 } from "react-native";
 import { styles } from "./styles";
-import { Search, CirclePlus } from "lucide-react-native";
+import { Search, Plus } from "lucide-react-native";
 import { Note } from "../../components/Note";
 
 const notes = [
@@ -24,87 +24,59 @@ const notes = [
   },
   {
     id: 3,
-    title: "Meeting notes",
+    title: "How to write a note",
     description:
-      "Meeting notes are written records of the discussions and decisions made during a meeting.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
   {
     id: 4,
-    title: "Shopping list",
+    title: "How to write a note",
     description:
-      "A shopping list is a written record of items you need to buy at the store.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
   {
     id: 5,
-    title: "To-do list",
+    title: "How to write a note",
     description:
-      "A to-do list is a simple way to keep track of tasks you need to complete.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
   {
     id: 6,
-    title: "Grocery list",
+    title: "How to write a note",
     description:
-      "A grocery list is a list of food items you need to buy at the grocery store.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
   {
     id: 7,
-    title: "Reminder note",
+    title: "How to write a note",
     description:
-      "A reminder note is a short message to help you remember something important.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
   {
     id: 8,
-    title: "Birthday note",
+    title: "How to write a note",
     description:
-      "A birthday note is a special message to celebrate someone’s birthday.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
   {
     id: 9,
-    title: "Thank you note",
+    title: "How to write a note",
     description:
-      "A thank you note is a short letter expressing gratitude to someone for a gift, service, or kindness.",
-  },
-  {
-    id: 10,
-    title: "Meeting notes",
-    description:
-      "Meeting notes are written records of the discussions and decisions made during a meeting.",
-  },
-  {
-    id: 11,
-    title: "Shopping list",
-    description:
-      "A shopping list is a written record of items you need to buy at the store.",
-  },
-  {
-    id: 12,
-    title: "To-do list",
-    description:
-      "A to-do list is a simple way to keep track of tasks you need to complete.",
-  },
-  {
-    id: 13,
-    title: "Grocery list",
-    description:
-      "A grocery list is a list of food items you need to buy at the grocery store.",
-  },
-  {
-    id: 14,
-    title: "Reminder note",
-    description:
-      "A reminder note is a short message to help you remember something important.",
-  },
-  {
-    id: 15,
-    title: "Birthday note",
-    description:
-      "A birthday note is a special message to celebrate someone’s birthday.",
+      "Writing a note can be a simple yet effective way to communicate your thoughts or feelings.",
   },
 ];
 export function Home() {
+  function handleAddNote() {
+    console.log("Add new note");
+  }
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
       <Text style={styles.titleApp}>Keep Note</Text>
+      <TouchableOpacity onPress={handleAddNote}>
+        <Plus size={30} color="#3A025B" />
+      </TouchableOpacity>
+      </View>
       <View style={styles.inputSearchContainer}>
         <Search size={20} color="#666" />
         <TextInput
@@ -114,22 +86,20 @@ export function Home() {
         />
       </View>
       <View style={styles.content}>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, paddingBottom: 30, }}>
         <FlatList
-          numColumns={2}
+          numColumns={2} // Display items in two columns
           data={notes}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <Note title={item.title} description={item.description} />
           )}
           showsVerticalScrollIndicator={false}
-          columnWrapperStyle={{ justifyContent: "space-between" }}
+          columnWrapperStyle={{ justifyContent: "space-between" }} // Space items evenly in the row
+          contentContainerStyle={{ padding: 5 }} // Add padding around the list
         />
         </View>
       </View>
-      <TouchableOpacity style={styles.addNoteButton}>
-        <Text style={styles.textButton}>Nova Anotação</Text>
-      </TouchableOpacity>
     </View>
   );
 }

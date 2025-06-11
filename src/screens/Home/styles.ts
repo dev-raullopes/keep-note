@@ -5,15 +5,20 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
-        paddingTop: 64,
+        paddingTop: 60,
         paddingHorizontal: 24,
         paddingBottom: 30,
+    },
+    header: {
+        justifyContent: "space-between",
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 20,
     },
     titleApp: {
         fontSize: 26,
         fontWeight: "bold",
         color: "#000",
-        marginBottom: 20,
     },
     inputSearchContainer:{
         flexDirection: "row",
@@ -21,7 +26,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "#f0f0f0",
         borderRadius: 8,
         paddingHorizontal: 16,
-        marginBottom: 35,
+        marginBottom: 20,
     },
     inputSearch: {
         height: 50,
@@ -31,23 +36,8 @@ export const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        borderRadius: 16,
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-    },
-    addNoteButton: {
-        width: "100%",
-        height: 60, 
-        backgroundColor: "#3A025B",
-        borderRadius: 30,
-        justifyContent: "center",
-        alignItems: "center",
-        alignSelf: "center",
-    },
-    textButton: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
     }
 })
