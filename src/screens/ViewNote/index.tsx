@@ -1,11 +1,11 @@
 import { View, TouchableOpacity, Text, TextInput } from "react-native";
 import { styles } from "./styles";
 import { ArrowLeft, Pencil, Save } from "lucide-react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export function ViewNote() {
-  function handleGoBack() {
-    console.log("Voltar");
-  }
+  const navigation = useNavigation();
+
   function handleEditNote() {
     console.log("Editar anotação");
   }
@@ -15,7 +15,7 @@ export function ViewNote() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={{ flex: 1 }} onPress={handleGoBack}>
+        <TouchableOpacity style={{ flex: 1 }} onPress={() => navigation.goBack()}>
           <ArrowLeft size={30} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleEditNote}>
