@@ -22,6 +22,10 @@ export function Home() {
     note.title.toLowerCase().trim().includes(searchQuery.toLowerCase().trim())
   );
   async function handleClearAll() {
+    if (notes.length === 0) {
+      Alert.alert("Atenção", "Não há notas para limpar.");
+      return;
+    }
     try {
       Alert.alert("Atenção", "Deseja realmente limpar todas as notas?", [
         {
