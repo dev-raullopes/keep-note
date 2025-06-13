@@ -38,9 +38,25 @@ async function clearAll(): Promise<void> {
     throw new Error("Error clearing notes from storage");
   }
 }
+async function update(updatedNote: NoteStorage): Promise<NoteStorage[]> {
+  const items = await get();
+  const updatedItems = items.map(note =>
+    note.id === updatedNote.id ? updatedNote : note
+  );
+  await save(updatedItems);
+  return updatedItems;
+}
+async function remove(id: string): Promise<NoteStorage[]> {
+  const items = await get();
+  const updatedItems = items.filter(note => note.id !== id);
+  await save(updatedItems);
+  return updatedItems;
+}
 export const notesStorage = {
   get,
   save,
   add,
   clearAll,
+  update,
+  remove,
 };

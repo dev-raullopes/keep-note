@@ -43,6 +43,7 @@ export function NewNote() {
       </TouchableOpacity>
       <Text style={styles.titleApp}>Nova Anotação</Text>
       <TextInput
+      placeholderTextColor={"#999"}
         placeholder="Título da anotação"
         style={styles.inputTitle}
         maxLength={30} // Limita o título a 30 caracteres

@@ -18,6 +18,10 @@ export function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigation = useNavigation();
 
+  function handleOpenNote(note: NoteStorage){
+    navigation.navigate("ViewNote", note);
+  }
+
   const filteredNotes = notes.filter((note) =>
     note.title.toLowerCase().trim().includes(searchQuery.toLowerCase().trim())
   );
@@ -86,9 +90,13 @@ export function Home() {
             data={filteredNotes}
             keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => (
-              <Note title={item.title} description={item.description} />
+              <Note 
+              title={item.title} 
+              description={item.description}
+              onPress={() => handleOpenNote(item)}
+              />
             )}
-            showsVerticalScrollIndicator={false}
+            showsVerticalScrollIndicator={true}
             columnWrapperStyle={{ justifyContent: "space-between" }} // Space items evenly in the row
             contentContainerStyle={{ padding: 5 }} // Add padding around the list
             ListEmptyComponent={() => (
